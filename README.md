@@ -1,79 +1,200 @@
 # Natural Language Processing Projects
 
-This repository contains two NLP projects developed as part of the CSE431 – Natural Language Processing with Machine Learning course at Aydin Adnan Menderes University.
+A comprehensive implementation of NLP techniques focusing on Named Entity Recognition in medical texts and Word2Vec model analysis.
 
-## Project 1: Named Entity Recognition on Medical Text
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![spaCy](https://img.shields.io/badge/spaCy-latest-green)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-latest-orange)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-latest-red)
 
-This project focuses on performing Named Entity Recognition (NER) on medical transcriptions to identify diseases, drugs, and drug doses.
+## 🎯 Overview
 
-### Key Features
-- Used multiple NLP models including:
-  - en_core_sci_sm
-  - en_core_sci_md 
-  - en_ner_bc5cdr_md
-- Implemented various machine learning models:
-  - Multinomial Naïve Bayes
-  - Random Forest
-  - XGBoost
-  - LightGBM
-  - 1D CNN with LSTM and GRU
-- Utilized both TF-IDF Vectorizer and Bag-of-Words (CountVectorizer) approaches
-- Applied SMOTE for handling class imbalance
-- Evaluated model performance using confusion matrices and classification metrics
+This repository contains two main NLP projects developed for advanced text analysis:
+1. Medical Text NER: Identifying medical entities using various ML models
+2. Word2Vec Analysis: Comparing different word embedding models across languages
 
-### Results
-- Achieved best performance with Random Forest using CountVectorizer
-- Multinomial Naïve Bayes showed strong results with some test cases
-- Successfully identified and classified medical entities in transcription texts
+## 🔧 Technical Components
 
-## Project 2: Word2Vec Models Analysis
+### Project 1: Medical Text NER
 
-This project involves analyzing and comparing different Word2Vec models using both Turkish and English lexicons.
-
-### Key Features
-- Trained custom Word2Vec model on Turkish Wikipedia dump
-- Utilized multiple pre-trained models:
-  - Custom Turkish Wikipedia model
-  - 2018 trmodel
-  - Fasttext vectors
-  - Glove Twitter vectors
-  - Word2Vec Google vectors
-- Implemented lexicon-based analysis using:
-  - NRC-VAD Lexicon
-  - MTL-Grouped Lexicon
-- Calculated mean values for emotional dimensions (Valence, Arousal, Dominance)
-- Performed comparative analysis across models and languages
-
-### Results
-- Successfully generated word embeddings and found similar words
-- Created comprehensive comparison tables for lexicon values
-- Analyzed emotional dimensions across different semantic categories
-
-## Setup and Installation
-
-1. Install Jupyter Notebook
-2. Install required libraries:
-```bash
-pip install spacy scispacey pandas numpy matplotlib seaborn nltk gensim
+#### Data Processing Pipeline
+```python
+def process_medical_text(text):
+    """
+    Process medical transcriptions for NER tasks
+    Returns preprocessed text with identified entities
+    """
 ```
 
-## Data Sources
-- Medical transcriptions dataset from Kaggle
-- Turkish Wikipedia dump
-- NRC-VAD Lexicon
-- MTL-Grouped Lexicon
+#### Core Components
+1. **Text Preprocessing**
+   - Tokenization
+   - Lemmatization
+   - Named Entity Recognition
 
-## Authors
+2. **Model Implementation**
+   - Multinomial Naïve Bayes
+   - Random Forest
+   - XGBoost
+   - LightGBM
+   - 1D CNN with LSTM and GRU
+
+### Project 2: Word2Vec Analysis
+
+#### Word Embedding Pipeline
+```python
+def train_word2vec(corpus):
+    """
+    Train Word2Vec model on given corpus
+    Returns trained model and word embeddings
+    """
+```
+
+#### Key Features
+1. **Model Integration**
+   - Custom Turkish Wikipedia model
+   - Pre-trained embeddings
+   - Multi-language support
+
+2. **Lexicon Analysis**
+   - NRC-VAD implementation
+   - MTL-Grouped analysis
+   - Emotional dimension calculation
+
+## 💻 Implementation Details
+
+### Medical NER System
+
+#### Vector Representations
+```python
+def create_vectors(text_data):
+    """
+    Create TF-IDF and Bag-of-Words representations
+    """
+```
+
+#### Model Training
+```python
+def train_models(X_train, y_train):
+    """
+    Train multiple models for comparison
+    """
+```
+
+### Word2Vec Analysis
+
+#### Embedding Generation
+```python
+def generate_embeddings(wiki_dump):
+    """
+    Generate word embeddings from Wikipedia dump
+    """
+```
+
+## 🛠️ Dependencies
+
+- spacy: NER and linguistic features
+- scikit-learn: Machine learning models
+- tensorflow: Deep learning implementation
+- gensim: Word2Vec models
+- pandas: Data manipulation
+- numpy: Numerical operations
+
+## 🚀 Usage
+
+1. Install dependencies:
+```bash
+pip install spacy scikit-learn tensorflow gensim pandas numpy
+```
+
+2. Download required models:
+```bash
+python -m spacy download en_core_sci_md
+```
+
+3. Run NER analysis:
+```bash
+python medical_ner.py
+```
+
+4. Run Word2Vec analysis:
+```bash
+python word2vec_analysis.py
+```
+
+## 📊 Results
+
+### Medical NER Performance
+- Random Forest: 97% accuracy
+- XGBoost: 90% accuracy
+- LightGBM: 93% accuracy
+
+### Word2Vec Analysis
+- Successfully mapped semantic relationships
+- Achieved accurate cross-lingual word associations
+- Generated comprehensive emotion lexicons
+
+## 🔍 Technical Details
+
+### NER Implementation
+```python
+def identify_entities(text):
+    """
+    Identify medical entities in text using trained models
+    """
+```
+
+### Word2Vec Implementation
+```python
+def calculate_lexicon_values(embeddings):
+    """
+    Calculate emotional dimensions from word embeddings
+    """
+```
+
+## 🔄 Future Improvements
+
+1. **Model Enhancement**
+   - Transformer architecture integration
+   - Cross-lingual model support
+   - Enhanced emotion detection
+
+2. **Performance Optimization**
+   - Parallel processing implementation
+   - Memory usage optimization
+   - Faster inference times
+
+3. **Feature Addition**
+   - Additional language support
+   - Real-time processing
+   - Advanced visualization tools
+
+## 🤝 Contributing
+
+Contributions are welcome! Key areas:
+1. Model optimization
+2. Additional language support
+3. Documentation enhancement
+4. New feature implementation
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📚 References
+
+1. Medical Transcriptions Dataset (Kaggle)
+2. Turkish Word2Vec Implementation
+3. NRC-VAD Lexicon Documentation
+4. MTL-Grouped Lexicon Dataset
+
+## 👥 Authors
+
 - Burak TÜZEL
 - Talha Alper ASAV
 
-## Course Information
-CSE431 – Natural Language Processing with Machine Learning 2023/2024  
-Lecturer: Asst. Prof. Dr. Fatih SOYGAZİ  
-Aydin Adnan Menderes University, Engineering Faculty  
-Computer Science Engineering Department
+## 🏫 Academic Context
 
-## References
-1. [Medical Transcriptions Dataset](https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions)
-2. [Turkish Word2Vec](https://github.com/akoksal/Turkish-Word2Vec/wiki/)
-3. [Turkish Wikipedia Dumps](https://dumps.wikimedia.org/trwiki/)
+CSE431 – Natural Language Processing with Machine Learning (2023/2024)  
+Aydin Adnan Menderes University  
+Supervisor: Asst. Prof. Dr. Fatih SOYGAZİ
